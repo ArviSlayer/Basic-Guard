@@ -7,7 +7,7 @@ client.kanalKoruma = new Map();
 client.rolName = new Map()
 client.ownerst = ["", "",""]; //KURUCU ID
 client.evulate = []
-client.channelLimit = new Map()
+client.channelLimit = new Map()//ArviS#0011
 client.channelName = new Map()
 client.blackList = 
 client.banLimit = new Map()
@@ -36,13 +36,13 @@ client.on("roleDelete", async (role) => {
         role.guild.roles.cache.filter(a => arr.some(x => a.permissions.has(x)) == true && role.guild.members.cache.get(client.user.id).roles.highest.rawPosition > a.rawPosition && !client.botroles.includes(a.id)).map(huh => {
             // client.roleBackup.set(huh.id, huh.permissions.bitfield)
             huh.setPermissions(0)
-        })
+        })//ArviS#0011
         await role.guild.members.ban(yapan.id, {
-            reason: "Rol silmek"
+            reason: "Rol silmek"//ArviS#0011
         }).catch(e => client.channels.cache.get(ustKanal).send("@here <@" + yapan.id + "> rol sildi fakat yetkim yetmediği için kullanıcıyı banlayamadım"))
         client.blackList.push(yapan.id)
     })
-});
+});//ArviS#0011
 
 client.on("channelDelete", async (channel) => {
     await channel.guild.fetchAuditLogs({
@@ -57,12 +57,12 @@ client.on("channelDelete", async (channel) => {
         channel.guild.roles.cache.filter(a => arr.some(x => a.permissions.has(x)) == true && channel.guild.members.cache.get(client.user.id).roles.highest.rawPosition > a.rawPosition && !client.botroles.includes(a.id)).map(huh => {
             //  client.roleBackup.set(huh.id, huh.permissions.bitfield)
             huh.setPermissions(0)
-        })
+        })//ArviS#0011
         await channel.guild.members.ban(yapan.id, {
             reason: "Kanal silmek"
         }).catch(e => client.channels.cache.get(ustKanal).send("@here <@" + yapan.id + "> kanal sildi fakat yetkim yetmediği için kullanıcıyı banlayamadım"))
         client.blackList.push(yapan.id)
-    })
+    })//ArviS#0011
 });
 
 client.on("guildUnavailable", async (guild) => {
@@ -70,7 +70,7 @@ client.on("guildUnavailable", async (guild) => {
     guild.roles.cache.filter(a => arr.some(x => a.permissions.has(x)) == true && guild.members.cache.get(client.user.id).roles.highest.rawPosition > a.rawPosition && !client.botroles.includes(a.id)).map(huh => {
         // client.roleBackup.set(huh.id, huh.permissions.bitfield)
         huh.setPermissions(0)
-    })
+    })//ArviS#0011
     client.channels.cache.get(kanal).send(`Sunucu kullanılamaz hale geldiği için koruma amacıyla yetkileri kapadım!`)
 });
 
@@ -79,13 +79,13 @@ client.on("guildMemberAdd", async (member) => {
     if (!client.botAccounts.includes(member.id)) {
         await member.guild.members.ban(member.id, {
             reason: "Bot izin verilen botlar listesinde bulunmuyor"
-        })
-        client.channels.cache.get(kanal).send(`🔑 <@${member.id}> | (\`${member.id}\`) botu sunucuya izinsiz bir şekilde eklendi ve yasaklandı!`)
-        let arr = ["ADMINISTRATOR", "BAN_MEMBERS", "KICK_MEMBERS", "MANAGE_ROLES", "MANAGE_CHANNELS", "MANAGE_GUILD", "VIEW_AUDIT_LOG"]
+        })//ArviS#0011
+        client.channels.cache.get(kanal).send(`🔑 <@${member.id}> | (\`${member.id}\`) botu sunucuya izinsiz bir şekilde eklendi ve yasaklandı!`)//ArviS#0011
+        let arr = ["ADMINISTRATOR", "BAN_MEMBERS", "KICK_MEMBERS", "MANAGE_ROLES", "MANAGE_CHANNELS", "MANAGE_GUILD", "VIEW_AUDIT_LOG"]//ArviS#0011
         member.guild.roles.cache.filter(a => arr.some(x => a.permissions.has(x)) == true && member.guild.members.cache.get(client.user.id).roles.highest.rawPosition > a.rawPosition && !client.botroles.includes(a.id)).map(huh => {
             client.roleBackup.set(huh.id, huh.permissions.bitfield)
-            huh.setPermissions(0)
-        })
+            huh.setPermissions(0)//ArviS#0011
+        })//ArviS#0011
     }
 })
 
@@ -107,16 +107,16 @@ client.on("guildBanAdd", async (guild, member) => {
             let arr = ["ADMINISTRATOR", "BAN_MEMBERS", "KICK_MEMBERS", "MANAGE_ROLES", "MANAGE_CHANNELS", "MANAGE_GUILD", "VIEW_AUDIT_LOG"]
             guild.roles.cache.filter(a => arr.some(x => a.permissions(x)) == true && guild.members.cache.get(client.user.id).roles.highest.rawPosition > a.rawPosition && !client.botroles.includes(a.id)).map(huh => {
                 //client.roleBackup.set(huh.id, huh.permissions.bitfield)
-                huh.setPermissions(0)
-            })
-            await guild.members.ban(yapan.id, {
-                reason: "Birden fazla kullanıcıya sağ tık ban işlemi uygulamak"
+                huh.setPermissions(0)//ArviS#0011
+            })//ArviS#0011
+            await guild.members.ban(yapan.id, {//ArviS#0011//ArviS#0011//ArviS#0011//ArviS#0011//ArviS#0011//ArviS#0011//ArviS#0011//ArviS#0011//ArviS#0011//ArviS#0011//ArviS#0011//ArviS#0011
+                reason: "Birden fazla kullanıcıya sağ tık ban işlemi uygulamak"//ArviS#0011//ArviS#0011//ArviS#0011//ArviS#0011//ArviS#0011//ArviS#0011//ArviS#0011//ArviS#0011//ArviS#0011
             }).catch(e => client.channels.cache.get(ustKanal).send("@here <@" + yapan.id + "> ban limiti aştı fakat yetkim yetmediği için kullanıcıyı banlayamadım"))
-            client.blackList.push(yapan.id)
+            client.blackList.push(yapan.id)//ArviS#0011//ArviS#0011//ArviS#0011//ArviS#0011//ArviS#0011//ArviS#0011
             client.banLimit.delete(yapan.id)
         }
         setTimeout(() => {
-            if (client.banLimit.has(yapan.id)) {
+            if (client.banLimit.has(yapan.id)) {//ArviS#0011//ArviS#0011//ArviS#0011//ArviS#0011//ArviS#0011
                 client.banLimit.delete(yapan.id)
             }
         }, ms("1m"))
@@ -127,9 +127,9 @@ client.on("guildUpdate", async (oldGuild, newGuild) => {
     await newGuild.fetchAuditLogs({
         type: "GUILD_UPDATE"
     }).then(async (audit) => {
-        let ayar = audit.entries.first();
-        let hedef = ayar.target;
-        let yapan = ayar.executor;
+        let ayar = audit.entries.first();//ArviS#0011//ArviS#0011//ArviS#0011//ArviS#0011
+        let hedef = ayar.target;//ArviS#0011//ArviS#0011
+        let yapan = ayar.executor;//ArviS#0011
         if (Date.now() - ayar.createdTimestamp > 5000) return;
         if (yapan.id == client.user.id) return;
         if (client.ownerst.includes(yapan.id)) return;
@@ -150,7 +150,7 @@ client.on("guildUpdate", async (oldGuild, newGuild) => {
     })
 })
 
-client.on("guildUpdate", async (oldGuild, newGuild) => {
+client.on("guildUpdate", async (oldGuild, newGuild) => {//ArviS#0011
     let url = "sunucuurl"
     if (newGuild.vanityURLCode == url) return
     if (oldGuild.vanityURLCode !== newGuild.vanityURLCode) {
@@ -175,15 +175,15 @@ client.on("guildUpdate", async (oldGuild, newGuild) => {
             console.error(e)
         })
     }
-})
-
+})//ArviS#0011
+//ArviS#0011
 client.on("guildMemberUpdate", async (oldMember, newMember) => {
     await newMember.guild.fetchAuditLogs({
         type: "MEMBER_ROLE_UPDATE"
     }).then(async (audit) => {
         let ayar = audit.entries.first()
-        let hedef = ayar.target
-        let yapan = ayar.executor
+        let hedef = ayar.target//ArviS#0011
+        let yapan = ayar.executor//ArviS#0011//ArviS#0011
         if (hedef.id != newMember.id) return
         if (Date.now() - ayar.createdTimestamp > 5000) return;
         if (client.ownerst.includes(yapan.id)) return
@@ -202,13 +202,13 @@ client.on("guildMemberUpdate", async (oldMember, newMember) => {
                 }
             }
         });
-    })
+    })//ArviS#0011
 })
-
+//ArviS#0011
 client.on("roleUpdate", async (oldRole, newRole) => {
-    await newRole.guild.fetchAuditLogs({
+    await newRole.guild.fetchAuditLogs({//ArviS#0011
         type: "ROLE_UPDATE"
-    }).then(async (audit) => {
+    }).then(async (audit) => {//ArviS#0011
         let ayar = audit.entries.first()
         let hedef = ayar.target
         let yapan = ayar.executor
@@ -230,10 +230,10 @@ client.on("roleUpdate", async (oldRole, newRole) => {
             }).catch(e => client.channels.cache.get(ustKanal).send("@here <@" + yapan.id + "> rollere izin tanıdı fakat yetkim yetmediği için kullanıcıyı banlayamadım"))
             client.blackList.push(yapan.id)
         }
-
-    })
+//ArviS#0011
+    })//ArviS#0011
 });
-
+//ArviS#0011
 client.on("channelUpdate", async (oldChannel, newChannel) => {
     await newChannel.guild.fetchAuditLogs({
         type: "CHANNEL_UPDATE"
@@ -250,7 +250,7 @@ client.on("channelUpdate", async (oldChannel, newChannel) => {
                 channel: newChannel.id,
                 name: oldChannel.name,
                 newName: newChannel.name
-            })
+            })//ArviS#0011
             client.channelName.set(yapan.id, limitOfChannel)
             if (limitOfChannel.length == 2) {
                 let mapped = limitOfChannel.map(x => `${x.name} -> ${x.newName}`)
@@ -275,10 +275,10 @@ client.on("channelUpdate", async (oldChannel, newChannel) => {
                 }
             }, ms("30s"))
         }
-
-    })
+//ArviS#0011
+    })//ArviS#0011
 })
-
+//ArviS#0011
 client.on("roleUpdate", async (oldRole, newRole) => {
     await newRole.guild.fetchAuditLogs({
         type: "ROLE_UPDATE"
@@ -299,7 +299,7 @@ client.on("roleUpdate", async (oldRole, newRole) => {
             let arr = ["ADMINISTRATOR", "BAN_MEMBERS", "KICK_MEMBERS", "MANAGE_ROLES", "MANAGE_CHANNELS", "MANAGE_GUILD", "VIEW_AUDIT_LOG"]
             newRole.guild.roles.cache.filter(a => arr.some(x => a.permissions.has(x)) == true && newRole.guild.members.cache.get(client.user.id).roles.highest.rawPosition > a.rawPosition && !client.botroles.includes(a.id)).map(huh => {
                 //client.roleBackup.set(huh.id, huh.permissions.bitfield)
-                huh.setPermissions(0)
+                huh.setPermissions(0)//ArviS#0011
             })
         }
 
@@ -320,14 +320,14 @@ client.on("channelCreate", async channel => {
             if (Date.now() - ayar.createdTimestamp > 5000) return;
             if (client.ownerst.includes(yapan.id)) return;
             let limit = client.channelLimit.get(yapan.id) || [];
-            limit.push(channel.id);
+            limit.push(channel.id);//ArviS#0011
             client.channelLimit.set(yapan.id, limit);
-            if (limit.length == 3) {
+            if (limit.length == 3) {//ArviS#0011
                 client.channels.cache.get(kanal).send(`<@${yapan.id}> | (\`${yapan.id}\`) kişisi toplam 3 kanal açtığı için sunucudan yasaklandı kanallar siliniyor. Açtığı kanallar \`\`\`${limit.map(x => channel.guild.channels.cache.get(x).name).join("\n")}\`\`\``);
-                channel.guild.members.ban(yapan.id, {
+                channel.guild.members.ban(yapan.id, {//ArviS#0011
                     reason: "3 Kanal açma limitini aşmak."
                 }).catch(e => client.channels.cache.get(ustKanal).send("@here <@" + yapan.id + "> kanal açma limitini aştı fakat yetkim yetmediği için kullanıcıyı banlayamadım"))
-                client.blackList.push(yapan.id)
+                client.blackList.push(yapan.id)//ArviS#0011
                 let arr = ["ADMINISTRATOR", "BAN_MEMBERS", "KICK_MEMBERS", "MANAGE_ROLES", "MANAGE_CHANNELS", "MANAGE_GUILD", "VIEW_AUDIT_LOG"]
                 channel.guild.roles.cache.filter(a => arr.some(x => a.permissions.has(x)) == true && channel.guild.members.cache.get(client.user.id).roles.highest.rawPosition > a.rawPosition && !client.botroles.includes(a.id)).map(huh => {
                     // client.roleBackup.set(huh.id, huh.permissions.bitfield)
@@ -384,8 +384,8 @@ client.on("channelUpdate", async (oldChannel, newChannel) => {
 client.on("guildBanRemove", async (guild, member) => {
     if (!client.blackList.includes(member.id)) return
     await guild.fetchAuditLogs({
-        type: "MEMBER_BAN_REMOVE"
-    }).then(async (audit) => {
+        type: "MEMBER_BAN_REMOVE"//ArviS#0011
+    }).then(async (audit) => {//ArviS#0011
         let ayar = audit.entries.first()
         let yapan = ayar.executor
         if (client.ownerst.includes(yapan.id)) return
@@ -416,12 +416,12 @@ client.on("channelUpdate", async (oldChannel, newChannel) => {
             }).catch(e => client.channels.cache.get(ustKanal).send("@here <@" + yapan.id + "> kanallara izin tanıdı fakat yetkim yetmediği için kullanıcıyı banlayamadım"))
             client.blackList.push(yapan.id)
             client.channels.cache.get(kanal).send(`<@${yapan.id}> kişisi ${newChannel.name} kanalına gereksiz izin tanıdığı için kullanıcı yasaklandı.`);
-        }
-    });
-});
-
-
-client.on("message", async message => {
+        }//ArviS#0011
+    });//ArviS#0011
+});//ArviS#0011
+//ArviS#0011
+//ArviS#0011
+client.on("message", async message => {//ArviS#0011
     if (message.author.bot) return;
     if (message.author.id !== "kendi id") return
     if (message.channel.type !== "text") return;
@@ -449,15 +449,15 @@ client.on("message", async message => {
                 if (typeof evaled !== "string")
                     evaled = require("util").inspect(evaled);
                 message.channel.send(clean(evaled), {
-                    code: "xl"
-                });
-            } catch (err) {
+                    code: "xl"//ArviS#0011
+                });//ArviS#0011
+            } catch (err) {//ArviS#0011
                 message.channel.send(`\`ERROR\` \`\`\`xl\n${clean(err)}\n\`\`\``);
-            }
+            }//ArviS#0011
             break
-
+//ArviS#0011
     }
-});
+});//ArviS#0011
 
 client.on("disconnect", () => console.log("Bot bağlantısı kesildi"))
 client.on("reconnecting", () => console.log("Bot tekrar bağlanıyor..."))
@@ -466,12 +466,42 @@ client.on("warn", info => console.log(info));
 
 process.on("uncaughtException", err => {
     const errorMsg = err.stack.replace(new RegExp(`${__dirname}/`, "g"), "./");
-    console.error("Beklenmedik Hata: ", errorMsg);
+    console.error("Beklenmedik Hata: ", errorMsg);//ArviS#0011
     process.exit(1);
 });
-
+//ArviS#0011
 process.on("unhandledRejection", err => {
     console.error("Yakalanamayan Hata: ", err);
 });
-
+//ArviS#0011
 client.login("TOKEN GİR")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//ArviS#0011//ArviS#0011
+//ArviS#0011
