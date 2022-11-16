@@ -4,7 +4,7 @@
   "description": "ArviS#0011 - Komutsuz Basit Guard Botu",
   "main": "index.js",
   "scripts": {
-    "test:dev": "nodemon index.js"
+    "start:dev": "nodemon index.js"
   },
 
   "repository": {
