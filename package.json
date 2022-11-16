@@ -1,0 +1,28 @@
+{
+  "name": "arvis-basic-guard-bot",
+  "version": "1.0.0",
+  "description": "ArviS#0011 - Komutsuz Basit Guard Botu",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ArviSlayer/Discord-Ozel-RPC-V2.git"
+  },
+
+  "author": "ArviS#0011",
+  "license": "ISC",
+"bugs": {
+    "url": "https://github.com/ArviSlayer/Discord-Ozel-RPC-V2/issues"
+  },
+  
+  "homepage": "https://github.com/ArviSlayer/Discord-Ozel-RPC-V2#readme",
+  "dependencies": {
+    "axios": "^0.21.0",
+    "discord.js": "^12.2.0",
+    "install": "^0.13.0",
+    "mongoose": "^5.9.19"
+  }
+}
